@@ -1,6 +1,8 @@
 [user]
-	name = xero
-	email = x@xero.nu
+	email = gleber.p@gmail.com
+	name = Gleb Peregud
+[push]
+	default = simple
 [credential]
 	helper = cache
 [alias]
@@ -8,6 +10,7 @@
 	stat = status -sb
 	last = log -1 --stat
 	unstage = reset HEAD --
+        restore = reset --hard HEAD
 	cached = diff --cached
 [color]
 	ui = auto
