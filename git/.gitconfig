@@ -11,6 +11,7 @@
 	last = log -1 --stat
 	unstage = reset HEAD --
         restore = reset --hard HEAD
+        sync = pull --rebase
 	cached = diff --cached
 [color]
 	ui = auto
