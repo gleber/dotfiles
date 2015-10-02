@@ -1,15 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 set -eu
 # set -x
 
 DRY=${DRY:-""}
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
+DIR=$(dirname $(readlink -f $0))
 cd $DIR
 
-if ! [[ "$DIR" == "$HOME/dotfiles" ]]; then
+if ! [ "$DIR" = "$HOME/dotfiles" ]; then
   echo "dotfiles repo should be in $HOME/dotfiles"
   exit 1
 fi
@@ -36,7 +35,7 @@ require() {
   fi
 }
 
-nix-install() {
+nixinstall() {
   bin=$1
   pkg=${2:-$1}
   if ! exists "$bin"; then
@@ -56,12 +55,12 @@ if ! exists nix-env; then
   rr curl https://nixos.org/nix/install | sh
 fi
 
-nix-install stow
-nix-install zile
+nixinstall stow
+nixinstall zile
 
 hash -r
 
-if [[ -z "$NIX_PATH" ]]; then
+if [ -z "$NIX_PATH" ]; then
   source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
@@ -78,6 +77,6 @@ rrstow git
 rrstow zile
 rrstow themes
 
-nix-install ag silver-searcher
-nix-install emacs
-nix-install ghc haskellPackages.ghc
+nixinstall ag silver-searcher
+nixinstall emacs
+nixinstall ghc haskellPackages.ghc
