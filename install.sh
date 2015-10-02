@@ -40,7 +40,7 @@ nix-install() {
   bin=$1
   pkg=${2:-$1}
   if ! exists "$bin"; then
-    rr nix-env -i "$pkg"
+    rr nix-env -f '\<nixpkgs\>' -i -A "$pkg"
   else
     echo ">>> Skipping installation of $bin (package $pkg)"
   fi
@@ -80,4 +80,4 @@ rrstow themes
 
 nix-install ag silver-searcher
 nix-install emacs
-nix-install ghc
+nix-install ghc haskellPackages.ghc
