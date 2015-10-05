@@ -56,7 +56,6 @@ if ! exists nix-env; then
 fi
 
 nixinstall stow
-nixinstall zile
 
 hash -r
 
@@ -74,9 +73,14 @@ rrstow() {
 
 rrstow zsh
 rrstow git
+
+nixinstall zile
 rrstow zile
+
 rrstow themes
 
 nixinstall ag silver-searcher
 nixinstall emacs
 nixinstall ghc haskellPackages.ghc
+
+rrstow awesome
