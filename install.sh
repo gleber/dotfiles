@@ -80,7 +80,9 @@ rrstow zile
 rrstow themes
 
 nixinstall ag silver-searcher
-nixinstall emacs
 nixinstall ghc haskellPackages.ghc
 
 rrstow awesome
+
+nixinstall emacs
+rrstow emacs
