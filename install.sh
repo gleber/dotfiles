@@ -35,11 +35,20 @@ require() {
   fi
 }
 
+APTGET=
+if exists apt-get; then
+    APTGET=$(which apt-get)
+fi
+NIXENV=
+if exists nix-env; then
+    NIXENV=$(which nix-env)
+fi
+
 nixinstall() {
   bin=$1
   pkg=${2:-$1}
   if ! exists "$bin"; then
-    rr nix-env -f '\<nixpkgs\>' -i -A "$pkg"
+    rr $NIXENV -f '\<nixpkgs\>' -i -A "$pkg"
   else
     echo ">>> Skipping installation of $bin (package $pkg)"
   fi
@@ -63,6 +72,10 @@ if [ -z "$NIX_PATH" ]; then
   source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
+#if ! exists apt-get; then
+#  sudo apt-get install xfonts-terminus xfonts-terminus-dos xfonts-terminus-oblique
+#fi
+
 rrstow() {
   if [ -n "$DRY" ]; then
     stow -n -vv "$@"
@@ -82,7 +95,14 @@ rrstow themes
 nixinstall ag silver-searcher
 nixinstall ghc haskellPackages.ghc
 
+nixinstall compton
+rrstow compton
+
+rrstow xmodmap
 rrstow awesome
+if exists awesome; then
+    rrstow xinit
+fi
 
 nixinstall emacs
 rrstow emacs
