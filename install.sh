@@ -87,6 +87,9 @@ rrstow() {
 rrstow zsh
 rrstow git
 
+nixinstall mr
+rrstow myrepos
+
 nixinstall zile
 rrstow zile
 
@@ -98,9 +101,9 @@ nixinstall ghc haskellPackages.ghc
 nixinstall compton
 rrstow compton
 
-rrstow xmodmap
-rrstow awesome
 if exists awesome; then
+    rrstow xmodmap
+    rrstow awesome
     rrstow xinit
 fi
 
