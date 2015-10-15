@@ -1,6 +1,10 @@
-
 [dotfiles]
 checkout = git clone 'git@github.com:gleber/dotfiles.git' 'dotfiles'
+
+[DEFAULT]
+git_zap = git remote update upstream &&
+    git merge upstream/master &&
+    git push origin master
 
 [dotfiles/emacs/.emacs.d]
 checkout =
@@ -20,8 +24,3 @@ checkout =
     cd awesome
     git remote add upstream 'https://github.com/tony/awesome-config.git'
 
-[DEFAULT]
-zap =
-    git pull upstream
-    git merge upstream/master
-    git push origin master
