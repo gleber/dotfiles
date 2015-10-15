@@ -58,13 +58,15 @@ require git
 require zsh
 require curl
 
-rr git submodule update --init --recursive 
-
 if ! exists nix-env; then
   rr curl https://nixos.org/nix/install | sh
 fi
 
 nixinstall stow
+nixinstall mr
+rrstow myrepos
+
+mr checkout
 
 hash -r
 
@@ -86,9 +88,6 @@ rrstow() {
 
 rrstow zsh
 rrstow git
-
-nixinstall mr
-rrstow myrepos
 
 nixinstall zile
 rrstow zile

@@ -1,9 +1,0 @@
-[submodule "prezto"]
-	path = zsh/.zprezto
-	url = git@github.com:gleber/prezto.git
-[submodule "awesome/.config/awesome"]
-	path = awesome/.config/awesome
-	url = https://github.com/gleber/awesome-config.git
-[submodule "emacs/.emacs.d"]
-	path = emacs/.emacs.d
-	url = git@github.com:gleber/spacemacs.git
