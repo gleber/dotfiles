@@ -54,12 +54,24 @@ nixinstall() {
   fi
 }
 
+rrstow() {
+    if [ -n "$DRY" ]; then
+        stow -n -vv "$@"
+    else
+        stow -vv "$@"
+    fi
+}
+
 require git
 require zsh
 require curl
 
 if ! exists nix-env; then
   rr curl https://nixos.org/nix/install | sh
+fi
+
+if [ -z "$NIX_PATH" ]; then
+    source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
 nixinstall stow
@@ -70,21 +82,9 @@ mr checkout
 
 hash -r
 
-if [ -z "$NIX_PATH" ]; then
-  source ~/.nix-profile/etc/profile.d/nix.sh
-fi
-
 #if ! exists apt-get; then
 #  sudo apt-get install xfonts-terminus xfonts-terminus-dos xfonts-terminus-oblique
 #fi
-
-rrstow() {
-  if [ -n "$DRY" ]; then
-    stow -n -vv "$@"
-  else
-    stow -vv "$@"
-  fi
-}
 
 rrstow zsh
 rrstow git
