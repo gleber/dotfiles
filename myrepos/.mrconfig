@@ -1,0 +1,12 @@
+
+[dotfiles]
+checkout = git clone 'git@github.com:gleber/dotfiles.git' 'dotfiles'
+
+[dotfiles/emacs/.emacs.d]
+checkout = git clone 'git@github.com:gleber/spacemacs.git' '.emacs.d'
+
+[dotfiles/zsh/.zprezto]
+checkout = git clone 'git@github.com:gleber/prezto.git' '.zprezto'
+
+[dotfiles/awesome/.config/awesome]
+checkout = git clone 'https://github.com/tony/awesome-config.git' 'awesome'
