@@ -22,12 +22,14 @@
      emacs-lisp
      git
      markdown
-     nix
-     (haskell :variables haskell-enable-shm-support t)
+     nixos
+     (haskell :variables haskell-enable-shm-support t
+                         haskell-enable-ghc-mod-support t
+                         haskell-enable-hindent-style "chris-done")
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell   :variables shell-default-term-shell "/bin/zsh"
+                         shell-default-height 30
+                         shell-default-position 'bottom)
      syntax-checking
      version-control
      themes-megapack

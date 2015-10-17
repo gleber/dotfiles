@@ -10,5 +10,6 @@ urxvd -q -f -o &
 compton -b --config ~/.config/compton.conf &
 
 (sleep 2 && nm-applet) &
+(sleep 3 && parcellite) &
 
 exec awesome

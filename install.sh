@@ -22,8 +22,10 @@ rr() {
   eval "$@"
 }
 
+hash -r
+
 exists() {
-  return $(hash $1 2>/dev/null)
+  hash $1 2>/dev/null
 }
 
 require() {
@@ -49,9 +51,11 @@ nixinstall() {
   pkg=${2:-$1}
   if ! exists "$bin"; then
     rr $NIXENV -f '\<nixpkgs\>' -i -A "$pkg"
+    hash -r
   else
     echo ">>> Skipping installation of $bin (package $pkg)"
   fi
+  require "$bin"
 }
 
 rrstow() {
@@ -67,7 +71,7 @@ require zsh
 require curl
 
 if ! exists nix-env; then
-  rr curl https://nixos.org/nix/install | sh
+    curl https://nixos.org/nix/install | sh
 fi
 
 if [ -z "$NIX_PATH" ]; then
@@ -96,6 +100,14 @@ rrstow themes
 
 nixinstall ag silver-searcher
 nixinstall ghc haskellPackages.ghc
+nixinstall cabal haskellPackages.cabal-install
+nixinstall ghc-mod haskellPackages.ghc-mod
+nixinstall hlint haskellPackages.hlint
+nixinstall structured-haskell-mode haskellPackages.structured-haskell-mode
+nixinstall stylish-haskell haskellPackages.stylish-haskell
+nixinstall hindent haskellPackages.hindent
+nixinstall hasktags haskellPackages.hasktags
+nixinstall stack
 
 nixinstall compton
 rrstow compton
