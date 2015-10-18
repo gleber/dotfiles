@@ -6,3 +6,8 @@ install:
 script:
   - ./uninstall.sh
 sudo: false
+addons:
+  apt:
+    packages:
+    - zile
+    - zsh
