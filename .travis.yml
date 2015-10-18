@@ -1,0 +1,6 @@
+language: bash
+install:
+  - ./install.sh
+script:
+  - ./uninstall.sh
+sudo: required

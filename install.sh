@@ -1,70 +1,12 @@
 #!/bin/sh
 
-set -eu
-# set -x
-
-DRY=${DRY:-""}
-
 DIR=$(dirname $(readlink -f $0))
 cd $DIR
 
-if ! [ "$DIR" = "$HOME/dotfiles" ]; then
-  echo "dotfiles repo should be in $HOME/dotfiles"
-  exit 1
-fi
+set -eu
+# set -x
 
-rr() {
-  if [ -n "$DRY" ]; then
-    echo ">>> Skipping $*"
-    return 0
-  fi
-  echo ">>> Running $*"
-  eval "$@"
-}
-
-hash -r
-
-exists() {
-  hash $1 2>/dev/null
-}
-
-require() {
-  if ! exists "$1"; then
-    "!!! $1 is required, but could not be found!"
-    exit 1
-  else
-    echo ">>> $1 is present"
-  fi
-}
-
-APTGET=
-if exists apt-get; then
-    APTGET=$(which apt-get)
-fi
-NIXENV=
-if exists nix-env; then
-    NIXENV=$(which nix-env)
-fi
-
-nixinstall() {
-  bin=$1
-  pkg=${2:-$1}
-  if ! exists "$bin"; then
-    rr $NIXENV -f '\<nixpkgs\>' -i -A "$pkg"
-    hash -r
-  else
-    echo ">>> Skipping installation of $bin (package $pkg)"
-  fi
-  require "$bin"
-}
-
-rrstow() {
-    if [ -n "$DRY" ]; then
-        stow -n -vv "$@"
-    else
-        stow -vv "$@"
-    fi
-}
+. ${DIR}/common.sh
 
 require git
 require zsh
@@ -74,9 +16,15 @@ if ! exists nix-env; then
     curl https://nixos.org/nix/install | sh
 fi
 
-if [ -z "$NIX_PATH" ]; then
-    source ~/.nix-profile/etc/profile.d/nix.sh
-fi
+case "$PATH" in
+    *nix-profile*)
+        ;;
+    *)
+        . ~/.nix-profile/etc/profile.d/nix.sh
+        ;;
+esac
+
+NIXENV=$(which nix-env)
 
 nixinstall stow
 nixinstall mr
@@ -85,10 +33,6 @@ rrstow myrepos
 mr checkout
 
 hash -r
-
-#if ! exists apt-get; then
-#  sudo apt-get install xfonts-terminus xfonts-terminus-dos xfonts-terminus-oblique
-#fi
 
 rrstow zsh
 rrstow git
