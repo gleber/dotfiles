@@ -1,6 +1,6 @@
 language: bash
 install:
-  - mv /home/travis/gleber/dotfiles /home/travis
+  - mv $(pwd) /home/travis
   - cd /home/travis/dotfiles
   - ./install.sh
 script:
