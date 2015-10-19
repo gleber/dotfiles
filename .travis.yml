@@ -2,7 +2,9 @@ language: bash
 install:
   - mv $(pwd) /home/travis
   - cd /home/travis/dotfiles
-  - rm $HOME/.zshrc
+  - cat $HOME/.gitconfig
+  - cat $HOME/.zshrc
+  - rm $HOME/.zshrc $HOME/.gitconfig
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
   - ./install.sh
 script:
