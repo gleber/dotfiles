@@ -5,9 +5,8 @@ install:
   - ./install.sh
 script:
   - ./uninstall.sh
-sudo: false
+sudo: required
 addons:
   apt:
     packages:
-    - zile
     - zsh

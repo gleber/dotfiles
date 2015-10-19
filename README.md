@@ -18,6 +18,10 @@ Installer assumes the following:
 * Posix-compatible shell
 * installed git, zsh and curl
 
+## TODO
+
+* use nix config file instead of running nix-env -i on each binary
+
 ## Included configs and apps
 
 Currently it installs configuration for:
