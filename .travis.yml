@@ -8,7 +8,7 @@ install:
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
   - ./install.sh
 script:
-  - ./uninstall.sh
+  - source $HOME/.nix-profile/etc/profile.d/nix.sh && ./uninstall.sh
 sudo: required
 addons:
   apt:

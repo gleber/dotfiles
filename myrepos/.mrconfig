@@ -6,6 +6,9 @@ git_zap = git remote update upstream &&
     git merge upstream/master &&
     git push origin master
 
+git_updiff = git remote update upstream &&
+    git diff master upstream/master
+
 [dotfiles/emacs/.emacs.d]
 checkout =
     git clone 'git@github.com:gleber/spacemacs.git' '.emacs.d' --recursive
@@ -19,8 +22,5 @@ checkout =
     git remote add upstream https://github.com/sorin-ionescu/prezto.git
 
 [dotfiles/awesome/.config/awesome]
-checkout =
-    git clone 'git@github.com:gleber/awesome-config.git' 'awesome' --recursive
-    cd awesome
-    git remote add upstream 'https://github.com/tony/awesome-config.git'
+checkout = git clone 'git@github.com:gleber/awesome-config.git' 'awesome' --recursive
 
