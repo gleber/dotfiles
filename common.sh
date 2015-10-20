@@ -25,6 +25,7 @@ exists() {
 }
 
 require() {
+    hash -r
     if ! exists "$1"; then
         echo "!!! $1 is required, but could not be found!"
         exit 1
@@ -34,6 +35,7 @@ require() {
 }
 
 missing() {
+    hash -r
     if exists "$1"; then
         echo "!!! $1 should not be present, but it is!"
         exit 1

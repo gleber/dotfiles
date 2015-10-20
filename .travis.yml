@@ -1,5 +1,6 @@
 language: bash
 install:
+  - sudo apt-get purge emacs
   - mv $(pwd) /home/travis
   - cd /home/travis/dotfiles
   - cat $HOME/.gitconfig
