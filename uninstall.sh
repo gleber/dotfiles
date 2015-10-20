@@ -12,6 +12,7 @@ rrunstow emacs
 rrunstow xinit
 rrunstow awesome
 rrunstow xmodmap
+rrunstow parcellite
 rrunstow compton
 rrunstow themes
 rrunstow zile
@@ -20,6 +21,7 @@ rrunstow zsh
 rrunstow myrepos
 
 nixuninstall emacs
+nixuninstall parcellite
 nixuninstall compton
 nixuninstall stack
 nixuninstall hasktags

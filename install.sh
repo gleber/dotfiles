@@ -53,13 +53,14 @@ nixinstall hindent haskellPackages.hindent
 nixinstall hasktags haskellPackages.hasktags
 nixinstall stack
 
-nixinstall compton
-rrstow compton
-
 if exists awesome; then
+    nixinstall compton
+    rrstow compton
     rrstow xmodmap
     rrstow awesome
     rrstow xinit
+    nixinstall parcellite
+    rrstow parcellite
 fi
 
 nixinstall emacs
