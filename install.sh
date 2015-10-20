@@ -63,5 +63,6 @@ if exists awesome; then
     rrstow parcellite
 fi
 
+missing emacs
 nixinstall emacs
 rrstow emacs

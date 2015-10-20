@@ -26,7 +26,7 @@ exists() {
 
 require() {
     if ! exists "$1"; then
-        "!!! $1 is required, but could not be found!"
+        echo "!!! $1 is required, but could not be found!"
         exit 1
     else
         echo ">>> $1 is present as expected"
@@ -35,7 +35,7 @@ require() {
 
 missing() {
     if exists "$1"; then
-        "!!! $1 should not be present, but it is!"
+        echo "!!! $1 should not be present, but it is!"
         exit 1
     else
         echo ">>> $1 is missing as expected"
@@ -54,7 +54,7 @@ fi
 nixuninstall() {
     bin=$1
     pkg=${2:-$1}
-    nixop uninstall $bin $pkg
+    nixop uninstall "$bin" "$pkg"
 }
 
 nixop() {
@@ -84,7 +84,7 @@ nixop() {
 nixinstall() {
     bin=$1
     pkg=${2:-$1}
-    nixop install $bin $pkg
+    nixop install "$bin" "$pkg"
 }
 
 rrunstow() {
