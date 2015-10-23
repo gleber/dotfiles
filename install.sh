@@ -66,3 +66,5 @@ fi
 missing emacs
 nixinstall emacs
 rrstow emacs
+
+hash -r

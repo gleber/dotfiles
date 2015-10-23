@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -eu
+# set -x
 
 DRY=${DRY:-""}
 
@@ -24,6 +25,14 @@ exists() {
     hash $1 2>/dev/null
 }
 
+nixexists() {
+    if exists $1; then
+        which $1 | grep -q "$HOME/.nix-profile/"
+        return $?
+    fi
+    return 1
+}
+
 require() {
     hash -r
     if ! exists "$1"; then
@@ -36,8 +45,8 @@ require() {
 
 missing() {
     hash -r
-    if exists "$1"; then
-        echo "!!! $1 should not be present, but it is!"
+    if nixexists "$1"; then
+        echo "!!! $1 should not be present in ~/.nix-profile, but it is!"
         exit 1
     else
         echo ">>> $1 is missing as expected"
@@ -65,7 +74,7 @@ nixop() {
     pkg=${3:-$bin}
     hash -r
     if [ "$op" = "install" ]; then
-        if exists "$bin"; then
+        if nixexists "$bin"; then
             echo ">>> Skipping installation of $bin (package $pkg)"
             return 0
         fi

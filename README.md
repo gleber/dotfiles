@@ -58,5 +58,13 @@ versions.
 It uses Spacemacs, which brings in a lot of packages from all kinds of *ELPAs,
 so versions there are also not predictable.
 
-If you want to see a hardcore approach to version stability of one's
+If you want to see a hardcore approach to version stability of user
 environment, please check out https://github.com/nilcons/ceh
+
+## TODO
+
+Add the following apps and configs:
+
+* xscreensaver or something similar (with Meta+; as binding to lock)
+* switch to xmonad
+* set up .ssh/authorized_keys

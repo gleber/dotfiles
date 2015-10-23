@@ -38,3 +38,5 @@ nixuninstall mr
 nixuninstall stow
 
 rm -I -rf $HOME/.nix-*
+
+hash -r
