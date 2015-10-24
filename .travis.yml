@@ -1,4 +1,9 @@
 language: bash
+before_script:
+  - mkdir -p /tmp/bin
+  - wget https://github.com/cedric-vincent/proot-static-build/raw/master/static/proot-x86_64 -O /tmp/bin/proot
+  - chmod +x /tmp/bin/proot
+  - export PATH=$PATH:/tmp/bin
 install:
   - mv $(pwd) /home/travis
   - cd /home/travis/dotfiles
@@ -11,7 +16,7 @@ script:
   - proot -b $HOME/root_nix:/nix sh -c "./install.sh"
   - proot -b $HOME/root_nix:/nix sh -c "source $HOME/.nix-profile/etc/profile.d/nix.sh && ./uninstall.sh"
 sudo: false
-addons:
-  apt:
-    packages:
-    - proot
+#addons:
+#  apt:
+#    packages:
+#    - proot
