@@ -1,17 +1,17 @@
 language: bash
 install:
-  - sudo apt-get purge emacs
   - mv $(pwd) /home/travis
   - cd /home/travis/dotfiles
   - cat $HOME/.gitconfig
   - cat $HOME/.zshrc
+  - mkdir $HOME/root_nix
   - rm $HOME/.zshrc $HOME/.gitconfig
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
-  - ./install.sh
 script:
-  - source $HOME/.nix-profile/etc/profile.d/nix.sh && ./uninstall.sh
-sudo: required
+  - proot -b $HOME/root_nix:/nix sh -c "./install.sh"
+  - proot -b $HOME/root_nix:/nix sh -c "source $HOME/.nix-profile/etc/profile.d/nix.sh && ./uninstall.sh"
+sudo: false
 addons:
   apt:
     packages:
-    - zsh
+    - proot
