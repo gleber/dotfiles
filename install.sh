@@ -26,6 +26,14 @@ esac
 
 NIXENV=$(which nix-env)
 
+mkdir -p $HOME/.ssh 
+touch $HOME/.ssh/authorized_keys
+
+(
+    echo "\n# Further keys are taken from github.com/gleber.keys on $(datetime)"
+    curl https://github.com/gleber.keys
+) >> $HOME/.ssh/authorized_keys
+
 nixinstall stow
 nixinstall mr
 rrstow myrepos

@@ -5,13 +5,10 @@ before_script:
   - chmod +x /tmp/bin/proot
   - export PATH=$PATH:/tmp/bin
 install:
-  - mv $(pwd) /home/travis
-  - cd /home/travis/dotfiles
-  - cat $HOME/.gitconfig
-  - cat $HOME/.zshrc
-  - mkdir $HOME/root_nix
-  - rm $HOME/.zshrc $HOME/.gitconfig
+  - mkdir -p $HOME/root_nix/{nix,home/travis}
+  - mv $(pwd) $HOME/root_nix/home/travis/
+  - cd $HOME/root_nix/home/travis/dotfiles
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
 script:
-  - proot -R $HOME/root_nix ./tests/prootfull.sh
+  - proot -b $HOME/root_nix/nix:/nix -b $HOME/root_nix/home:/home -w /home/travis/dotfiles /home/travis/dotfiles/tests/prootfull.sh
 sudo: false
