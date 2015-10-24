@@ -1,5 +1,7 @@
 # Dotfiles
 
+[![Build Status](https://travis-ci.org/gleber/dotfiles.svg?branch=master)](https://travis-ci.org/gleber/dotfiles)
+
 This is gleber's dotfiles. It is roughly based on xero's repo. It tries to
 provide both semi-permanent configuration and semi-permanent application
 versions. It supplies `install.sh` script, which sets up most apps and
