@@ -12,3 +12,7 @@ install:
 script:
   - proot -b $HOME/root_nix/nix:/nix -b $HOME/root_nix/home:/home -w /home/travis/dotfiles /home/travis/dotfiles/tests/prootfull.sh
 sudo: false
+addons:
+  apt:
+    packages:
+    - zsh
