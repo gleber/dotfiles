@@ -65,6 +65,6 @@ environment, please check out https://github.com/nilcons/ceh
 
 Add the following apps and configs:
 
-* xscreensaver or something similar (with Meta+; as binding to lock)
-* switch to xmonad
-* set up .ssh/authorized_keys
+* [ ] xscreensaver or something similar (with Meta+; as binding to lock)
+* [ ] switch to xmonad
+* [x] set up .ssh/authorized_keys

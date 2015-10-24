@@ -26,12 +26,14 @@ esac
 
 NIXENV=$(which nix-env)
 
-mkdir -p $HOME/.ssh 
-touch $HOME/.ssh/authorized_keys
+KEYS=$HOME/.ssh/authorized_keys
+mkdir -p $(dirname $KEYS)
+touch $KEYS
+chmod 0600 $KEYS
 
 (
-    echo "\n# Further keys are taken from github.com/gleber.keys on $(datetime)"
-    curl https://github.com/gleber.keys
+    echo "\n# Further keys are taken from github.com/gleber.keys on $(date)"
+    curl https://github.com/gleber.keys | grep -v -x -f $KEYS || true
 ) >> $HOME/.ssh/authorized_keys
 
 nixinstall stow
@@ -71,7 +73,6 @@ if exists awesome; then
     rrstow parcellite
 fi
 
-missing emacs
 nixinstall emacs
 rrstow emacs
 
