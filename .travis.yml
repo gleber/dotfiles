@@ -13,10 +13,5 @@ install:
   - rm $HOME/.zshrc $HOME/.gitconfig
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
 script:
-  - proot -b $HOME/root_nix:/nix sh -c "./install.sh"
-  - proot -b $HOME/root_nix:/nix sh -c "source $HOME/.nix-profile/etc/profile.d/nix.sh && ./uninstall.sh"
+  - proot -R $HOME/root_nix ./tests/prootfull.sh
 sudo: false
-#addons:
-#  apt:
-#    packages:
-#    - proot
