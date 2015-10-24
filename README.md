@@ -20,10 +20,6 @@ Installer assumes the following:
 * Posix-compatible shell
 * installed git, zsh and curl
 
-## TODO
-
-* use nix config file instead of running nix-env -i on each binary
-
 ## Included configs and apps
 
 Currently it installs configuration for:
@@ -69,4 +65,5 @@ Add the following apps and configs:
 
 * [ ] xscreensaver or something similar (with Meta+; as binding to lock)
 * [ ] switch to xmonad
+* [ ] use nix config file instead of running nix-env -i on each binary
 * [x] set up .ssh/authorized_keys
