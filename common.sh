@@ -62,13 +62,13 @@ if exists nix-env; then
     NIXENV=$(which nix-env)
 fi
 
-NIXOS=
+ISNIXOS=
 if [ -f /etc/nixos/configuration.nix ]; then
-    NIXOS=true
+    ISNIXOS=true
 fi
 
 is_nixos() {
-    [ "$NIXOS" = "true" ];
+    [ "$ISNIXOS" = "true" ];
 }
 
 nixuninstall() {
