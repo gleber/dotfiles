@@ -8,6 +8,7 @@ set -eu
 
 . ${DIR}/common.sh
 
+rrunstow stack
 rrunstow emacs
 rrunstow xinit
 rrunstow awesome
@@ -18,6 +19,7 @@ rrunstow themes
 rrunstow zile
 rrunstow git
 rrunstow zsh
+rrunstow bin
 rrunstow myrepos
 
 nixuninstall emacs

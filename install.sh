@@ -46,6 +46,7 @@ hash -r
 
 rrstow zsh
 rrstow git
+rrstow bin
 
 nixinstall zile
 rrstow zile
@@ -61,6 +62,8 @@ nixinstall structured-haskell-mode haskellPackages.structured-haskell-mode
 nixinstall stylish-haskell haskellPackages.stylish-haskell
 nixinstall hindent haskellPackages.hindent
 nixinstall hasktags haskellPackages.hasktags
+
+rrstow stack
 nixinstall stack
 
 if exists awesome; then

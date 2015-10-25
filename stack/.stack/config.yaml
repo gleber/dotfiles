@@ -1,0 +1,4 @@
+extra-include-dirs:
+- /home/gleber/.nix-profile/include/
+extra-lib-dirs:
+- /home/gleber/.nix-profile/lib/
