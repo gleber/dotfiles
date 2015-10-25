@@ -39,6 +39,8 @@ nixuninstall zile
 nixuninstall mr
 nixuninstall stow
 
-rm -I -rf $HOME/.nix-*
+if ! is_nixos; then
+    rm -I -rf $HOME/.nix-profile $HOME/.nix-channels
+fi
 
 hash -r

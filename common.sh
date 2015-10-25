@@ -62,6 +62,15 @@ if exists nix-env; then
     NIXENV=$(which nix-env)
 fi
 
+NIXOS=
+if [ -f /etc/nixos/configuration.nix ]; then
+    NIXOS=true
+fi
+
+is_nixos() {
+    [ "$NIXOS" = "true" ];
+}
+
 nixuninstall() {
     bin=$1
     pkg=${2:-$1}
