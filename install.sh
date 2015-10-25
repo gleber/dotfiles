@@ -64,7 +64,7 @@ nixinstall hindent haskellPackages.hindent
 nixinstall hasktags haskellPackages.hasktags
 
 rrstow stack
-nixinstall stack
+nixinstall stack haskellPackages.stack
 
 if exists awesome; then
     nixinstall compton
