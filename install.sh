@@ -66,7 +66,7 @@ nixinstall hasktags haskellPackages.hasktags
 rrstow stack
 nixinstall stack haskellPackages.stack
 
-if exists awesome; then
+if exists X; then
     nixinstall compton
     rrstow compton
     rrstow xmodmap

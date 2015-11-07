@@ -3,6 +3,10 @@
 # For this file to work, make sure it is linked as .xinitrc, .xsession
 $ and .xessionrc
 
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
+  source ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
 xrdb -merge ~/.Xresources
 xmodmap ~/.xmodmap
 
