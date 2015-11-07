@@ -15,3 +15,5 @@
 	cached = diff --cached
 [color]
 	ui = auto
+[rerere]
+	enabled = true
