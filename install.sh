@@ -74,6 +74,7 @@ if exists X; then
     rrstow xinit
     nixinstall parcellite
     rrstow parcellite
+    nixinstall xwininfo byzanz
 fi
 
 nixinstall emacs
