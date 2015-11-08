@@ -92,6 +92,7 @@ rrstow emacs
 
 # Configure keybase
 
-nixinstall nodejs-keybase
+nixinstall gpg2 gnupg
+nixinstall keybase nodejs-keybase
 
 hash -r

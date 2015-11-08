@@ -38,6 +38,7 @@ nixuninstall ag silver-searcher
 nixuninstall zile
 nixuninstall mr
 nixuninstall stow
+nixuninstall gnupg
 nixuninstall nodejs-keybase
 
 if ! is_nixos; then
