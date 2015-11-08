@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x
+set -eux
 
 ./install.sh
 
