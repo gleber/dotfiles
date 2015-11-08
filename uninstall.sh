@@ -38,6 +38,7 @@ nixuninstall ag silver-searcher
 nixuninstall zile
 nixuninstall mr
 nixuninstall stow
+nixuninstall nodejs-keybase
 
 if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels

@@ -44,14 +44,20 @@ mr checkout
 
 hash -r
 
+# Config basics
+
 rrstow zsh
 rrstow git
 rrstow bin
+
+# Config my ad-hoc editor
 
 nixinstall zile
 rrstow zile
 
 rrstow themes
+
+# Config haskell development
 
 nixinstall ag silver-searcher
 nixinstall ghc haskellPackages.ghc
@@ -66,6 +72,8 @@ nixinstall hasktags haskellPackages.hasktags
 rrstow stack
 nixinstall stack haskellPackages.stack
 
+# Configure my windowing environment
+
 if exists X; then
     nixinstall compton
     rrstow compton
@@ -76,9 +84,14 @@ if exists X; then
     rrstow awesome
     rrstow xinit
 fi
-fi
+
+# Configure emacs + spacemacs
 
 nixinstall emacs
 rrstow emacs
+
+# Configure keybase
+
+nixinstall nodejs-keybase
 
 hash -r
