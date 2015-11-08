@@ -1,15 +1,15 @@
-!█▓▒░ map caps lock to ctrl
+! map caps lock to ctrl
 remove Lock = Caps_Lock
 remove Control = Control_L
 keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L
 
-!█▓▒░ add mode switch
+! add mode switch
 !keycode 66 = NoSymbol NoSymbol
 !keycode 66 = Mode_switch
 
-!█▓▒░ set vi movments
+! set vi movments
 keysym h = h H Left  NoSymbol NoSymbol NoSymbol
 keysym j = j J Down  NoSymbol NoSymbol NoSymbol
 keysym k = k K Up    NoSymbol NoSymbol NoSymbol

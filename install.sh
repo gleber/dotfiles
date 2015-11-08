@@ -70,11 +70,12 @@ if exists X; then
     nixinstall compton
     rrstow compton
     rrstow xmodmap
-    rrstow awesome
-    rrstow xinit
     nixinstall parcellite
     rrstow parcellite
     nixinstall xwininfo byzanz
+    rrstow awesome
+    rrstow xinit
+fi
 fi
 
 nixinstall emacs
