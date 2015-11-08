@@ -39,7 +39,7 @@ nixuninstall zile
 nixuninstall mr
 nixuninstall stow
 nixuninstall gnupg
-nixuninstall nodejs-keybase
+nixuninstall keybase
 
 if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels

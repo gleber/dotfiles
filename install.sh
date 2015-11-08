@@ -12,7 +12,8 @@ require git
 require zsh
 require curl
 
-if ! exists nix-env; then
+if [ ! -d /nix ]; then
+    echo "Installing nix..."
     curl https://nixos.org/nix/install | sh
 fi
 
@@ -93,6 +94,6 @@ rrstow emacs
 # Configure keybase
 
 nixinstall gpg2 gnupg
-nixinstall keybase nodejs-keybase
+nixinstall keybase keybase
 
 hash -r
