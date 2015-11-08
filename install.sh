@@ -8,11 +8,10 @@ set -eu
 
 . ${DIR}/common.sh
 
-require git
 require zsh
 require curl
 
-if [ ! -d /nix ]; then
+if [ ! -d /nix/store ]; then
     echo "Installing nix..."
     curl https://nixos.org/nix/install | sh
 fi
@@ -37,6 +36,7 @@ chmod 0600 $KEYS
     curl https://github.com/gleber.keys | grep -v -x -f $KEYS || true
 ) >> $HOME/.ssh/authorized_keys
 
+nixinstall git gitAndTools.gitFull
 nixinstall stow
 nixinstall mr
 rrstow myrepos

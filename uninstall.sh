@@ -40,6 +40,7 @@ nixuninstall mr
 nixuninstall stow
 nixuninstall gnupg
 nixuninstall keybase
+nixuninstall git
 
 if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels
