@@ -39,7 +39,7 @@ nixuninstall zile
 nixuninstall mr
 nixuninstall stow
 nixuninstall gnupg
-nixuninstall keybase
+nixuninstall keybase nodejs-keybase
 nixuninstall git
 
 if ! is_nixos; then
