@@ -3,6 +3,10 @@ checkout = git clone 'git@github.com:gleber/dotfiles.git' 'dotfiles'
 
 [DEFAULT]
 git_zap = git remote update upstream &&
+    git rebase upstream/master &&
+    git push --force origin master
+
+git_zong = git remote update upstream &&
     git merge upstream/master &&
     git push origin master
 
