@@ -8,6 +8,14 @@ set -eu
 
 . ${DIR}/common.sh
 
+if [ -d ~/.password-store ]; then
+    if [ -n "$(git -C ~/.password-store status --porcelain)" ]; then
+        echo "Password store is not clear, exiting!"
+        exit
+    fi
+    rr rm -rf ~/.password-store
+fi;
+
 rrunstow stack
 rrunstow emacs
 rrunstow xinit
