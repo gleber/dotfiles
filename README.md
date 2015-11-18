@@ -4,8 +4,10 @@
 
 This is gleber's dotfiles. It is roughly based on xero's repo. It tries to
 provide both semi-permanent configuration and semi-permanent application
-versions. It supplies `install.sh` script, which sets up most apps and
-configs using Nix, Stow and myrepos.
+versions. It supplies `install.sh` script, which sets up most apps and configs
+using Nix, Stow and myrepos. This config makes use of gpg encryption to store
+some sensitive information in the public github. For more details read
+`private/README.md`.
 
 ## Installation
 
@@ -18,7 +20,7 @@ Installer assumes the following:
 
 * either Ubuntu or NixOs
 * Posix-compatible shell
-* installed git, zsh and curl
+* installed zsh and curl
 
 ## Included configs and apps
 

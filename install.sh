@@ -91,9 +91,20 @@ fi
 nixinstall emacs
 rrstow emacs
 
-# Configure keybase
+# Configure cryptography
 
 nixinstall gpg2 gnupg
 nixinstall keybase keybase
+nixinstall pass
+nixinstall qtpass
+nixinstall git-crypt gitAndTools.git-crypt
+
+# Fetch password-store
+
+if [ ! -d ~/.password-store ]; then
+    PASSWORD_STORE_URL=$(cat private/password-store.private)
+    git clone $PASSWORD_STORE_URL ~/.password-store
+    pass git init
+fi
 
 hash -r

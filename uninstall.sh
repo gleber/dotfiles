@@ -22,6 +22,9 @@ rrunstow zsh
 rrunstow bin
 rrunstow myrepos
 
+nixuninstall pass
+nixuninstall qtpass
+
 nixuninstall emacs
 nixuninstall parcellite
 nixuninstall compton
@@ -41,6 +44,7 @@ nixuninstall stow
 nixuninstall gnupg
 nixuninstall keybase nodejs-keybase
 nixuninstall git
+nixuninstall git-crypt
 
 if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels
