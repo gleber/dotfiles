@@ -2,12 +2,13 @@
 
 [![Build Status](https://travis-ci.org/gleber/dotfiles.svg?branch=master)](https://travis-ci.org/gleber/dotfiles)
 
-This is gleber's dotfiles. It is roughly based on xero's repo. It tries to
-provide both semi-permanent configuration and semi-permanent application
-versions. It supplies `install.sh` script, which sets up most apps and configs
-using Nix, Stow and myrepos. This config makes use of gpg encryption to store
-some sensitive information in the public github. For more details read
-`private/README.md`.
+This is gleber's dotfiles. It tries to provide both semi-permanent configuration
+and semi-permanent application versions. It supplies `install.sh` script, which
+sets up most apps and configs using Nix, Stow and myrepos. This config makes use
+of gpg encryption to store some sensitive information in the public github. For
+more details read `private/README.md`.
+
+It was originally inspired by xero's dotfiles.
 
 ## Installation
 
@@ -20,7 +21,20 @@ Installer assumes the following:
 
 * either Ubuntu or NixOs
 * Posix-compatible shell
-* installed zsh and curl
+* installed zsh, curl, ssh and bzcat
+
+## Testing
+
+Local test can be run with Docker:
+
+```sh
+make build
+make test
+```
+
+This will build an ubuntu image, clone newest dotfiles repo in it and try to run
+install and uninstall scripts (with private stuff replaced with anonymized
+versions).
 
 ## Included configs and apps
 
@@ -60,12 +74,3 @@ so versions there are also not predictable.
 
 If you want to see a hardcore approach to version stability of user
 environment, please check out https://github.com/nilcons/ceh
-
-## TODO
-
-Add the following apps and configs:
-
-* [ ] xscreensaver or something similar (with Meta+; as binding to lock)
-* [ ] switch to xmonad
-* [ ] use nix config file instead of running nix-env -i on each binary
-* [x] set up .ssh/authorized_keys

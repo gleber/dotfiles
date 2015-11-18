@@ -9,6 +9,7 @@ install:
   - mv $(pwd) $HOME/root_nix/home/travis/
   - cd $HOME/root_nix/home/travis/dotfiles
   - sed -i 's#git@github.com:#https://github.com/#g' myrepos/.mrconfig
+  - ./tests/replace-private.sh
 script:
   - proot -b $HOME/root_nix/nix:/nix -b $HOME/root_nix/home:/home -w /home/travis/dotfiles /home/travis/dotfiles/tests/prootfull.sh
 sudo: false
