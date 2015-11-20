@@ -58,6 +58,12 @@ rrstow zile
 
 rrstow themes
 
+# Config erlang development
+# It is highly at the moment
+
+rrstow hex
+rrstow rebar
+
 # Config haskell development
 
 nixinstall ag silver-searcher
