@@ -30,7 +30,7 @@ rrunstow zsh
 rrunstow bin
 rrunstow myrepos
 
-nixuninstall pass
+nixuninstall pass password-store
 nixuninstall qtpass
 
 nixuninstall emacs

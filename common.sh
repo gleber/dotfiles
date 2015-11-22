@@ -94,7 +94,7 @@ nixop() {
             echo ">>> Skipping uninstallation of $bin (package $pkg)"
             return 0
         fi
-        rr $NIXENV -f '\<nixpkgs\>' -e "$pkg"
+        rr $NIXENV -f '\<nixpkgs\>' -e "$pkg" 2>&1 | grep -q "uninstalling"
         missing "$bin"
     else
         exit 3
