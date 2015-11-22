@@ -122,4 +122,4 @@ fi
 
 hash -r
 
-echo ">>> Installation finished successfully!"
+echo ">>> Installation finished successfully! <<<"

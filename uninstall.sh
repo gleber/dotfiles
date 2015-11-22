@@ -75,4 +75,4 @@ fi
 
 hash -r
 
-echo ">>> Uninstallation finished successfully!"
+echo ">>> Uninstallation finished successfully! <<<"
