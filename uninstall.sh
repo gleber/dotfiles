@@ -66,12 +66,12 @@ if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels
 fi
 
-REMAINING_LINKS=$(find -type l -printf "%p -> %l\n" | grep "\-> dotfiles")
+# REMAINING_LINKS=$(find -type l -printf "%p -> %l\n" | grep "\-> dotfiles")
 
-if [ -n "$REMAINING_LINKS" ]; then
-    echo "$REMAINING_LINKS are still linked to dotfiles/"
-    exit 1
-fi
+# if [ -n "$REMAINING_LINKS" ]; then
+#     echo "$REMAINING_LINKS are still linked to dotfiles/"
+#     exit 1
+# fi
 
 hash -r
 
