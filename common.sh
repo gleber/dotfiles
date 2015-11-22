@@ -3,12 +3,12 @@
 set -eu
 # set -x
 
-DRY=${DRY:-""}
-
 if ! [ "$DIR" = "$HOME/dotfiles" ]; then
     echo "dotfiles repo should be in $HOME/dotfiles"
     exit 1
 fi
+
+. ${DIR}/config.sh
 
 rr() {
     if [ -n "$DRY" ]; then
@@ -20,6 +20,18 @@ rr() {
 }
 
 hash -r
+
+enabled() {
+    key=$(echo $1 | awk '{print toupper($0)}')
+    key="ENABLE_${key}"
+    eval "val=\$$key"
+    if [ "${val}" = "true" ]; then
+        echo ">>> $key is enabled"
+        return 0
+    fi
+    echo ">>> $key is disabled"
+    return 1
+}
 
 exists() {
     hash $1 2>/dev/null
@@ -94,7 +106,8 @@ nixop() {
             echo ">>> Skipping uninstallation of $bin (package $pkg)"
             return 0
         fi
-        rr $NIXENV -f '\<nixpkgs\>' -e "$pkg" 2>&1 | grep -q "uninstalling"
+        # rr $NIXENV -f '\<nixpkgs\>' -e "$pkg" # 2>&1 | grep -q "uninstalling"
+        rr $NIXENV -f '\<nixpkgs\>' -e "$pkg"
         missing "$bin"
     else
         exit 3

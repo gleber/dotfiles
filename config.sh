@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DRY=${DRY:-""}
+ENABLE_HASKELL=true
+ENABLE_ERLANG=true
+ENABLE_CRYPTO=true
+ENABLE_PASSWORDSTORE=true
