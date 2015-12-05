@@ -98,7 +98,7 @@ fi
 # Configure emacs + spacemacs
 
 nixinstall w3m
-nixinstall sqlite # required by helm-dash
+nixinstall sqlite3 sqlite # required by helm-dash
 nixinstall emacs
 rrstow emacs
 
