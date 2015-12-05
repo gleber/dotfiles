@@ -23,6 +23,7 @@
      git
      markdown
      nixos
+     w3m
      (haskell :variables haskell-enable-shm-support t
                          haskell-enable-ghc-mod-support t
                          haskell-enable-hindent-style "chris-done")
@@ -33,6 +34,19 @@
      syntax-checking
      version-control
      erlang
+     (dash :variables
+           dash-helm-dash-docset-path "~/.docsets/"
+           helm-dash-browser-func 'w3m
+           helm-dash-common-docsets '(
+                                      "Bash"
+                                      "C++"
+                                      "Elixir"
+                                      "Emacs Lisp"
+                                      "Erlang"
+                                      "Haskell"
+                                      "Python 2"
+                                      "Python 3"
+                                      ))
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
@@ -162,10 +176,23 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
-  "Configuration function.
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (setq-default w3m-home-page "http://www.google.com"
+                ;; W3M Home Page
+                w3m-default-display-inline-images t
+                w3m-default-toggle-inline-images t
+                ;; W3M default display images
+                w3m-command-arguments '("-cookie" "-F")
+                w3m-use-cookies t
+                ;; W3M use cookies
+                browse-url-browser-function 'w3m-browse-url
+                ;; Browse url function use w3m
+                w3m-view-this-url-new-session-in-background t
+                ;; W3M view url new session in background
+                )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -97,8 +97,19 @@ fi
 
 # Configure emacs + spacemacs
 
+nixinstall w3m
+nixinstall sqlite # required by helm-dash
 nixinstall emacs
 rrstow emacs
+
+# Configure Zeal
+
+nixinstall zeal
+rrstow zeal
+(
+    cd zeal
+    ./update.sh
+)
 
 # Configure cryptography
 

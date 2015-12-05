@@ -54,6 +54,8 @@ if enabled haskell; then
 fi
 
 nixuninstall emacs
+nixuninstall w3m
+nixuninstall sqlite3 sqlite
 nixuninstall parcellite
 nixuninstall compton
 
