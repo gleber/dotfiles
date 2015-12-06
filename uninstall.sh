@@ -4,7 +4,6 @@ DIR=$(dirname $(readlink -f $0))
 cd $DIR
 
 set -eu
-set -x
 
 hash -r
 

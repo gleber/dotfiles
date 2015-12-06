@@ -99,7 +99,7 @@ nixop() {
             echo ">>> Skipping installation of $bin (package $pkg)"
             return 0
         fi
-        rr $NIXENV -f '\<nixpkgs\>' -i -A "$pkg"
+        rr $NIXENV -Q -f '\<nixpkgs\>' -i -A "$pkg"
         require "$bin"
     elif [ "$op" = "uninstall" ]; then
         if ! exists "$bin"; then
