@@ -24,6 +24,6 @@ for n in $LIST; do
     fi
     echo $n
     wget http://sanfrancisco.kapeli.com/feeds/${nn}.tgz
-    tar xfvz ${nn}.tgz
+    tar xfz ${nn}.tgz
     rm ${nn}.tgz
 done
