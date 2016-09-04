@@ -61,7 +61,8 @@ nixuninstall compton
 nixuninstall zile
 nixuninstall mr
 nixuninstall stow
-nixuninstall git
+nixuninstall git hub
+nixuninstall slock
 
 if ! is_nixos; then
     rm -I -rf $HOME/.nix-profile $HOME/.nix-channels

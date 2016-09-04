@@ -13,6 +13,8 @@ xmodmap ~/.xmodmap
 urxvd -q -f -o &
 compton -b --config ~/.config/compton.conf &
 
+setxkbmap -layout pl,ru -option caps:ctrl_modifier
+
 (sleep 2 && nm-applet) &
 (sleep 3 && parcellite) &
 

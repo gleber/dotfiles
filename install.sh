@@ -35,7 +35,7 @@ chmod 0600 $KEYS
     curl https://github.com/gleber.keys | grep -v -x -f $KEYS || true
 ) >> $HOME/.ssh/authorized_keys
 
-nixinstall git gitAndTools.gitFull
+nixinstall git gitAndTools.gitFull hub
 nixinstall stow
 nixinstall mr
 rrstow myrepos
@@ -58,7 +58,7 @@ rrstow zile
 rrstow themes
 
 # Config erlang development
-# It is highly at the moment
+# It is highly experimental at the moment
 
 if enabled erlang; then
     rrstow hex
@@ -93,6 +93,7 @@ if exists X; then
     nixinstall xwininfo byzanz
     rrstow awesome
     rrstow xinit
+    nixinstall slock
 fi
 
 # Configure emacs + spacemacs
