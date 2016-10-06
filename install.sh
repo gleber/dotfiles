@@ -73,7 +73,7 @@ if enabled haskell; then
     nixinstall cabal haskellPackages.cabal-install
     nixinstall ghc-mod haskellPackages.ghc-mod
     nixinstall hlint haskellPackages.hlint
-    nixinstall structured-haskell-mode haskellPackages.structured-haskell-mode
+    # nixinstall structured-haskell-mode haskellPackages.structured-haskell-mode
     nixinstall stylish-haskell haskellPackages.stylish-haskell
     nixinstall hindent haskellPackages.hindent
     nixinstall hasktags haskellPackages.hasktags
