@@ -116,7 +116,7 @@ rrstow zeal
 
 if enabled crypto; then
     nixinstall gpg2 gnupg
-    nixinstall keybase keybase
+    nixinstall keybase nodejs-keybase
     nixinstall pass
     nixinstall qtpass
     nixinstall git-crypt gitAndTools.git-crypt
