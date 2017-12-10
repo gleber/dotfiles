@@ -1,7 +1,11 @@
-URxvt.font: xft:Terminus:size=14
+URxvt.font: xft:TerminessTTF Nerd Font:size=12
 URxvt.termName: rxvt-256color
 URxvt.xftAntialias: true
-URxvt.keysym.C-k:       echo -ne '\\033c'\n
+Xft.antialias: true
+Xft.hinting: true
+URxvt.letterSpace: 1
+!! Larger history limit
+URxvt.saveLines: 1000000
 
 *background:            #001b26
 *foreground:            #93A4A6

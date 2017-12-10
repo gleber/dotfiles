@@ -23,7 +23,19 @@ case "$PATH" in
         ;;
 esac
 
-NIXENV=$(which nix-env)
+require nix-env
+require nix-shell
+
+nixinstall stow
+
+# Home-manager install
+rr mkdir -m 0755 -p /nix/var/nix/{profiles,gcroots}/per-user/$USER
+rrstow home-manager
+
+if ! exists home-manager; then
+    HMPATH=$(cat home-manager/.config/nixpkgs/home.nix | grep "home-manager.*release" | perl -pe 's#.*path.*(https?.*?);#\1#g')
+    rr nix-shell $HMPATH -A install
+fi
 
 KEYS=$HOME/.ssh/authorized_keys
 mkdir -p $(dirname $KEYS)
@@ -35,19 +47,15 @@ chmod 0600 $KEYS
     curl https://github.com/gleber.keys | grep -v -x -f $KEYS || true
 ) >> $HOME/.ssh/authorized_keys
 
-nixinstall git gitAndTools.gitFull hub
-nixinstall stow
-nixinstall mr
-rrstow myrepos
+exit
 
+rrstow myrepos
 mr checkout
 
 hash -r
 
 # Config basics
 
-rrstow zsh
-rrstow git
 rrstow bin
 
 # Config my ad-hoc editor

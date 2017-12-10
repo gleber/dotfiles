@@ -65,10 +65,6 @@ missing() {
     fi
 }
 
-APTGET=
-if exists apt-get; then
-    APTGET=$(which apt-get)
-fi
 NIXENV=
 if exists nix-env; then
     NIXENV=$(which nix-env)
@@ -122,9 +118,9 @@ nixinstall() {
 
 rrunstow() {
     if [ -n "$DRY" ]; then
-        stow -n -D -vv "$@"
+        stow -n -D -v "$@"
     else
-        stow -vv -D "$@"
+        stow -v -D "$@"
     fi
 }
 

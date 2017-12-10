@@ -26,7 +26,7 @@ usage () {
 
  create short / vanity github urls
  usage: $(basename $0) http://github.com/something [-v mini]
- 
+
  options:
   -v   shortlink
   -h   display this screen
@@ -36,7 +36,7 @@ EOF
 
 err() {
 	echo $1
-	usage	
+	usage
 }
 
 optstest() {

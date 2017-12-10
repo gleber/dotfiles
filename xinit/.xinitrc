@@ -7,13 +7,15 @@ if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
   source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
+eval $(gpg-agent --daemon)
+
 xrdb -merge ~/.Xresources
 xmodmap ~/.xmodmap
 
-urxvd -q -f -o &
+urxvtd -q -f -o &
 compton -b --config ~/.config/compton.conf &
 
-setxkbmap -layout pl,ru -option caps:ctrl_modifier
+setxkbmap -layout pl,ru -option caps:ctrl_modifier -option grp:alt_shift_toggle
 
 (sleep 2 && nm-applet) &
 (sleep 3 && parcellite) &
