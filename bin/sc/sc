@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DATE=`date '+%Y-%m-%d %H:%M:%S'`
+read -r G < <(slop -f "%g")
+import -window root -crop $G ~/screenshots/img-${DATE}.png

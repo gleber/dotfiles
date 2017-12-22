@@ -1,9 +1,11 @@
 { pkgs, ... }:
 let
-  bs = name: baseNameOf (toString name);
-  wrapBin = fn: pkgs.writeScriptBin (bs fn) (builtins.readFile fn);
+  lib = pkgs.callPackage ./lib.nix {};
+  callPackage = pkgs.newScope lib;
+  wrapBin = lib.wrapBin;
 in
 {
+  pretty_config     = wrapBin ../../../bin/bin/pretty_config.erl;
   gitio             = wrapBin ../../../bin/bin/gitio;
   imgur             = wrapBin ../../../bin/bin/imgur;
   ix                = wrapBin ../../../bin/bin/ix;
@@ -11,5 +13,6 @@ in
   nix-search        = wrapBin ../../../bin/bin/nix-search;
   screencast-window = wrapBin ../../../bin/bin/screencast-window;
   tmx               = wrapBin ../../../bin/bin/tmx;
-  inotifyrun        = pkgs.callPackage ../../../bin/inotifyrun {};
+  inotifyrun        = callPackage ../../../bin/inotifyrun {};
+  sc                = callPackage ../../../bin/sc {};
 }
