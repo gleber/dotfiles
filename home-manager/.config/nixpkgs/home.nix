@@ -12,12 +12,35 @@ in
     htop gksu
     chromium rxvt_unicode
     slop imagemagick pgadmin
+    xss-lock
     inotify-tools
+    direnv
+    pass
+    tree
+    jq
+    keybase-gui
+    # xkill
+
+    steam
 
     gitAndTools.git-crypt
     gitAndTools.hub
     gitAndTools.git-hub
+    git-lfs
     mr
+    silver-searcher
+    ripgrep
+    ncdu
+    acpi
+    file
+    unzip
+
+    ccls
+
+    unetbootin
+    gparted
+    ntfs3g
+    ms-sys
   ] ++ (builtins.attrValues mybinpkgs);
 
   programs.git = {
@@ -44,6 +67,8 @@ in
         default = simple
       [credential]
         helper = cache
+      [pull]
+        rebase = true
     '';
   };
 
@@ -54,7 +79,7 @@ in
 
   programs.firefox = {
     enable = true;
-    enableAdobeFlash = true;
+    # enableAdobeFlash = true;
     enableIcedTea = true;
   };
 
@@ -80,6 +105,11 @@ in
     '';
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.ssh = {
     enable = true;
     forwardAgent = true;
@@ -96,14 +126,28 @@ in
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
+    enableExtraSocket = true;
   };
 
-  services.compton = {
+  services.picom = {
     enable = true;
-    extraOptions = ''
-      inactive-dim = 0.5;
-    '';
   };
+
+  services.redshift = {
+    enable = true;
+    provider = "geoclue2";
+  };
+
+  services.keybase.enable = true;
+  services.kbfs = {
+    enable = true;
+    mountPoint = "kbfs";
+  };
+
+  services.unclutter.enable = true;
+  services.udiskie.enable = true;
+
+  systemd.user.startServices = true;
 
   programs.home-manager = {
     enable = true;

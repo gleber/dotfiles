@@ -11,6 +11,7 @@ in
   ix                = wrapBin ../../../bin/bin/ix;
   kerl              = wrapBin ../../../bin/bin/kerl;
   nix-search        = wrapBin ../../../bin/bin/nix-search;
+  nix-stray-roots   = wrapBin ../../../bin/bin/nix-stray-roots;
   screencast-window = wrapBin ../../../bin/bin/screencast-window;
   tmx               = wrapBin ../../../bin/bin/tmx;
   inotifyrun        = callPackage ../../../bin/inotifyrun {};
